@@ -39,4 +39,10 @@ def getActorList(request):
 
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'name' : 1})
-    return HttpResponse(json.dumps(list(adb)), mimetype='application/javascript')
+    output = list(adb)
+
+    for orow in output:
+        if orow.has_key('_id'):
+            del orow['_id']
+ 
+    return HttpResponse(simplejson.dumps(output), mimetype='application/javascript')
