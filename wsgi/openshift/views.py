@@ -37,5 +37,6 @@ def getMovies(request):
 def getActorList(request):
     name = request.GET['name']
 
+
     adb = db.actors.find({"name": { '$regex' : name }},{ 'name' : 1})
     return HttpResponse(json.dumps(adb), mimetype='application/javascript')
