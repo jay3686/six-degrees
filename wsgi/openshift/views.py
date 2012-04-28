@@ -20,8 +20,13 @@ def getActors(request):
     year = request.GET['year']
 
     adb = db.actors.find({"mkey": title + year },{ 'name' : 1})
+    output = list(adb)
 
-    return HttpResponse(json.dumps(list(adb)), mimetype='application/javascript')
+    for orow in output:
+        if orow.has_key('_id'):
+            del orow['_id']
+ 
+    return HttpResponse(simplejson.dumps(output), mimetype='application/javascript')
 
 
 #input:  actor name
@@ -30,8 +35,13 @@ def getMovies(request):
     name = request.GET['name']
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'movies' : 1})
+    output = list(adb)
 
-    return HttpResponse(json.dumps(list(adb)), mimetype='application/javascript')
+    for orow in output:
+        if orow.has_key('_id'):
+            del orow['_id']
+ 
+    return HttpResponse(simplejson.dumps(output), mimetype='application/javascript')
 
 
 def getActorList(request):
