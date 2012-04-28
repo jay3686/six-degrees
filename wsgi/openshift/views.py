@@ -16,6 +16,6 @@ def home(request):
 def getActors(request):
     name = request.POST.get('name', False)
 
-    adb = db.actors.find_one({"name":name})
+    adb = db.actors.find({"name": { '$regex' : name }})
 
     return HttpResponse(simplejson.dumps(adb), mimetype='application/javascript')
