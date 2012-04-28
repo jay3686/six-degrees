@@ -1,10 +1,10 @@
 import pymongo
 import gzip
 
-connection = pymongo.Connection('127.6.89.1',27017)
+connection = pymongo.Connection('mongodb://admin:4A5buhckPFSw@127.6.89.1:27017/'
 db = connection.six
 
-aFile = gzip.open('../data/actors.list.gz')
+aFile = gzip.open('../data/testactors.list.gz')
 
 startParsing = 0 
 actor = ''
