@@ -21,7 +21,7 @@ def getActors(request):
 
     adb = db.actors.find({"mkey": title + year },{ 'name' : 1})
 
-    return HttpResponse(adb, mimetype='application/javascript')
+    return HttpResponse(json.dumps(list(adb), mimetype='application/javascript')
 
 
 #input:  actor name
@@ -31,7 +31,7 @@ def getMovies(request):
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'movies' : 1})
 
-    return HttpResponse(adb, mimetype='application/javascript')
+    return HttpResponse(json.dumps(list(adb), mimetype='application/javascript')
 
 
 def getActorList(request):
@@ -39,4 +39,4 @@ def getActorList(request):
 
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'name' : 1})
-    return HttpResponse(json.dumps(adb), mimetype='application/javascript')
+    return HttpResponse(json.dumps(list(adb), mimetype='application/javascript')
