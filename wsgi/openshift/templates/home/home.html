@@ -97,8 +97,7 @@
              // json object label and value as data
                 data = JSON.parse(data);
                 response( $.map( data, function( item ) {
-                    alert(item.name);
-                     return {
+                    return {
                   label: item.name,
                   value: item.name
                      }
