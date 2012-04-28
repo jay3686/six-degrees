@@ -35,4 +35,4 @@ def getMovies(request):
 
 def getActorList(request):
     adb = db.actors.distinct("name")
-    return HttpResponse(simplejson.dups(adb), mimetype='application/javascript')
+    return HttpResponse(simplejson.dumps(adb), mimetype='application/javascript')
