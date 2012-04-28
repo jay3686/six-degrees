@@ -8,6 +8,8 @@ urlpatterns = patterns('',
     # Examples:
     
     url(r'^GetActors/$', 'openshift.views.getActors', name='home'),
+    url(r'^GetMovies/$', 'openshift.views.getMovies', name='home'),
+    url(r'^GetActorList/$', 'openshift.views.getActorList', name='home'),
     url(r'^$', 'openshift.views.home', name='home'),
     # url(r'^openshift/', include('openshift.foo.urls')),
 
