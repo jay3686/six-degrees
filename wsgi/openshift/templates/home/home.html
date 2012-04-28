@@ -89,7 +89,14 @@
            type:'GET',
            data:'',
            success:function(data){
-             alert(data);
+             //alert(data);
+             // json object label and value as data
+                response( $.map( data.geonames, function( item ) {
+                    return {
+                 label: item,
+                 value: item
+                    }
+             }));
            },
            error:function(w){
              alert("error BEOTCH!");
