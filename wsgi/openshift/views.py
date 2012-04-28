@@ -15,10 +15,10 @@ def home(request):
 #input:  movie title and year
 #output:    json list of actors in movie
 def getActors(request):
-    title = request.POST.get('title', False)
-    year = request.POST.get('year', False)
+    title = request.GET['title']
+    year = request.GET['year']
 
-    adb = db.actors.find({"mkey": { '$regex' : title + year }},{ 'name' : 1})
+    adb = db.actors.find({"mkey": title + year },{ 'name' : 1})
 
     return HttpResponse(adb, mimetype='application/javascript')
 
@@ -26,7 +26,7 @@ def getActors(request):
 #input:  actor name
 #output:    json list of movie title and year
 def getMovies(request):
-    name = request.POST.get('name', False)
+    name = request.GET['name']
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'movies' : 1})
 
@@ -34,7 +34,7 @@ def getMovies(request):
 
 
 def getActorList(request):
-    name = request.POST.get('name', False)
+    name = request.GET['name']
 
     adb = db.actors.find({"name": { '$regex' : name }},{ 'name' : 1})
     return HttpResponse(adb, mimetype='application/javascript')
