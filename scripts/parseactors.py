@@ -1,8 +1,8 @@
 import pymongo
 import gzip
 
-connection = pymongo.Connection('localhost',27017)
-db = connection.sixtest
+connection = pymongo.Connection('127.6.89.1',27017)
+db = connection.six
 
 aFile = gzip.open('../data/actors.list.gz')
 
