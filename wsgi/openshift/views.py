@@ -18,4 +18,4 @@ def getActors(request):
 
     adb = db.actors.find({"name": { '$regex' : name }})
 
-    return HttpResponse(simplejson.dumps(adb), mimetype='application/javascript')
+    return HttpResponse(adb, mimetype='application/javascript')
