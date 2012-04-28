@@ -1,9 +1,10 @@
 import pymongo
+import gzip
 
-connection = pymongo.Connection("127.6.89.1",27017)
+connection = pymongo.Connection('localhost',27017)
 db = connection.sixtest
 
-aFile = open('./imdb/testactors.list')
+aFile = gzip.open('../data/actors.list.gz')
 
 startParsing = 0 
 actor = ''
