@@ -87,7 +87,7 @@
         $.ajax({
            url:'http://six-degrees.rhcloud.com/GetActorList/',
            type:'GET',
-           data:'',
+           data:{name: request.term},
            success:function(data){
              //alert(data);
              // json object label and value as data
