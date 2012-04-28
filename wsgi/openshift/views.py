@@ -33,6 +33,6 @@ def getMovies(request):
     return HttpResponse(adb, mimetype='application/javascript')
 
 
-def getActorList():
+def getActorList(request):
     adb = db.actors.distinct("name")
     return HttpResponse(adb, mimetype='application/javascript')
