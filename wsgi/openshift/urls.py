@@ -7,9 +7,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     
-    url(r'^GetActors/$', 'openshift.views.getActors', name='home'),
-    url(r'^GetMovies/$', 'openshift.views.getMovies', name='home'),
-    url(r'^GetActorList/$', 'openshift.views.getActorList', name='home'),
+    url(r'^GetActors/$', 'openshift.views.get_actors', name='home'),
+    url(r'^GetMovies/$', 'openshift.views.get_movies', name='home'),
+    url(r'^GetActorList/$', 'openshift.views.get_actor_list', name='home'),
     url(r'^$', 'openshift.views.home', name='home'),
     # url(r'^openshift/', include('openshift.foo.urls')),
 
